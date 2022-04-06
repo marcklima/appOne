@@ -3,8 +3,18 @@ const appServer = express();
 
 
 appServer.get("/", function (req,res){
-  res.send("bem vindo!");
+  res.send("OI, Seja bem vindo!");
+});
 
+appServer.get("/home/:nome?", function(req,res){
+var nome = req.params.nome;
+
+  if (nome){
+    res.send("<h1> Hello "+nome+" Seja Bem vindo!!!</h1>")
+
+  }else {
+    res.send("<h1>Bem vindo ao Blog Baináu")
+  }
 });
 
 
