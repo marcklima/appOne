@@ -1,0 +1,14 @@
+{
+  "name": "appone",
+  "version": "1.0.0",
+  "description": "NodeJs | Express | MySql | JS |BootStrap",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "author": "Baináu By Marcelo Lima",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.17.3"
+  }
+}
