@@ -1,8 +1,13 @@
 const express = require('express');
 const appServer = express();
+const bodyParser = require('body-parser');
 
-appServer.use(express.static('public'));
 appServer.set('view engine', 'ejs'); // renderizador de html será o ejs
+appServer.use(express.static('public'));
+
+appServer.use(bodyParser.urlencoded({extended:false})); //responsavel para receber e traduzir o envior do metodo post
+appServer.use(bodyParser.json());
+
 
 
 
@@ -13,8 +18,10 @@ appServer.get('/quest', (req, res) => {
 
 
 //start
-appServer.post('/savequest', (req,res) => {
-  res.send("Formulário Recebido");
+appServer.post('savequest', (req, res) => {
+  res.send("Formulário Recebido, Título: " + titulo +" Descrição:  "+ descricao);
+  var titulo = req.body.titulo;
+  var descricao = req.body.descricao;
 });//fim
 
 
