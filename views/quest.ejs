@@ -1,0 +1,32 @@
+
+<%- include('partial/header.ejs') %> 
+<body>
+    <%- include('partial/navbar.ejs') %>
+
+    <div class="container">
+        <div class="card" id="formquest">
+            <div class="card-header">
+                <h3>Realizar Perguntas</h3>
+            </div>
+            <div class="card-body">
+                <form method="POST" action="/savequest">
+                    <label>Título</label>
+                    <input type="text" placeholder="Título" class="form-control">
+                    <br><label>Descrição</label>
+                    <textarea placeholder="Descreva sua pergunta" class="form-control"></textarea>
+                    <br>
+                    <button type="button" class="btn btn-info">Enviar Pergunta</button>
+                </form><!-- form action-->
+            </div><!-- div card body-->
+        </div><!-- div card-->
+    </div><!-- div container-->
+    <hr>
+    <div class="container">
+        <p class="lead">Faça sua pergunta e registre em nosso site para futuras consultas.</p>
+        <p class="lead">Obrigado por participar. </p>
+        <p class="lead">Baináu | Marcelo Lima ; )</p>
+    </div>
+</body>
+<%- include('partial/footer.ejs') %> 
+
+
