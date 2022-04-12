@@ -1,21 +1,21 @@
 
-<%- include('partial/header.ejs') %> 
+<%- include('partial/header.ejs') %><!---incluindo header na pagina --->
 <body>
-    <%- include('partial/navbar.ejs') %>
+    <%- include('partial/navbar.ejs') %><!---incluindo navbar na pagina --->
 
-    <div class="container">
-        <div class="card" id="formquest">
-            <div class="card-header">
+    <div class="container"><!---classe bootstrap --->
+        <div class="card" id="formquest"> <!---classe bootstrap --->
+            <div class="card-header"><!---classe bootstrap --->
                 <h3>Realizar Perguntas</h3>
             </div>
             <div class="card-body">
-                <form method="POST" action="/savequest">
+                <form method="POST" action="savequest">
                     <label>Título</label>
                     <input type="text" placeholder="Título" class="form-control" name="titulo">
                     <br><label>Descrição</label>
                     <textarea placeholder="Descreva sua pergunta" class="form-control" name="descricao"></textarea>
                     <br>
-                    <button type="button" class="btn btn-info">Enviar Pergunta</button>
+                    <button class="btn btn-info">Enviar Pergunta</button>
                 </form><!-- form action-->
             </div><!-- div card body-->
         </div><!-- div card-->

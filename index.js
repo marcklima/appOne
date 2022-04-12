@@ -1,6 +1,18 @@
 const express = require('express');
 const appServer = express();
 const bodyParser = require('body-parser');
+const connection = require('./database/database');
+const Quest = require("./database/Quest")
+
+
+connection
+  .authenticate()
+  .then(() =>{
+    console.log("bd conectado")
+  })
+  .catch((msgErro) =>{
+    console.log(msgErro);
+  } )
 
 appServer.set('view engine', 'ejs'); // renderizador de html será o ejs
 appServer.use(express.static('public'));
@@ -15,15 +27,6 @@ appServer.use(bodyParser.json());
 appServer.get('/quest', (req, res) => {
   res.render('quest');
 });//fim 
-
-
-//start
-appServer.post('savequest', (req, res) => {
-  res.send("Formulário Recebido, Título: " + titulo +" Descrição:  "+ descricao);
-  var titulo = req.body.titulo;
-  var descricao = req.body.descricao;
-});//fim
-
 
 
 //start
@@ -68,6 +71,20 @@ var nome = req.params.nome;
 });
 
 */
+//start
+appServer.post('/savequest', (req, res) => {
+  var titulo = req.body.titulo;
+  var descricao = req.body.descricao;
+
+  Quest.create({
+    titulo: titulo,
+    descricao: descricao
+  }).then(() => {
+    res.redirect("/");
+  
+});//fim
+
+
 
 appServer.listen(8181, function (erro) {
   if (erro) {
